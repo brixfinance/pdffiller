@@ -4,6 +4,7 @@ PDF Filler (Node.js)
 
 A node.js PDF form field data filler and FDF generator toolkit. This essentially is a wrapper around the PDF Toolkit library <a target="_blank" href="http://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/">PDF ToolKit</a>.
 
+To run it locally, you still have to install the pdftk server toolkit. The package includes precompiled binaries that work in AWS lambda functions.
 
 Quick start
 -----------
@@ -13,7 +14,7 @@ First, run `npm install pdffiller-aws-lambda --save` for your app.
 Import the module using:
 
 ```js
-var pdfFiller = require('pdffiller');
+var pdfFiller = require('pdffiller-aws-lambda');
 
 // ...
 ```
