@@ -1,6 +1,6 @@
 PDF Filler (Node.js)
 ======
-[![NPM](https://nodei.co/npm/pdffiller.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/pdffiller/)
+[![NPM](https://nodei.co/npm/pdffiller-aws-lambda.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/pdffiller-aws-lambda/)
 
 A node.js PDF form field data filler and FDF generator toolkit. This essentially is a wrapper around the PDF Toolkit library <a target="_blank" href="http://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/">PDF ToolKit</a>.
 
@@ -8,7 +8,7 @@ A node.js PDF form field data filler and FDF generator toolkit. This essentially
 Quick start
 -----------
 
-First, run `npm install pdffiller --save` for your app.
+First, run `npm install pdffiller-aws-lambda --save` for your app.
 
 Import the module using:
 
@@ -23,7 +23,7 @@ var pdfFiller = require('pdffiller');
 
 #### 1.Fill PDF with existing FDF Data
 ````javascript
-var pdfFiller   = require('pdffiller');
+var pdfFiller   = require('pdffiller-aws-lambda');
 
 var sourcePDF = "test/test.pdf";
 var destinationPDF =  "test/test_complete.pdf";
@@ -68,7 +68,7 @@ still editable, as per the `pdftk` command specification.
 
 #### 2. Generate FDF Template from PDF
 ````javascript
-var pdfFiller   = require('pdffiller');
+var pdfFiller   = require('pdffiller-aws-lambda');
 
 var sourcePDF = "test/test.pdf";
 
@@ -98,7 +98,7 @@ This will print out this
 
 #### 3. Map form fields to PDF fields
 ````javascript
-var pdfFiller = require('pdffiller');
+var pdfFiller = require('pdffiller-aws-lambda');
 
 var convMap = {
     "lastName": "last_name",
@@ -174,7 +174,7 @@ This will print out the object below.
 
 #### 4. Convert fieldJson to FDF data
 ````javascript
-var pdfFiller   = require('pdffiller');
+var pdfFiller   = require('pdffiller-aws-lambda');
 
 var fieldJson = [
     {

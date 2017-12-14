@@ -9,7 +9,7 @@
 (function(){
     var child_process = require('child_process'),
         execFile = require('child_process').execFile,
-        fdf = require('utf8-fdf-generator'),
+        fdf = require('utf8-fdf-generator-lite'),
         _ = require('lodash'),
         fs = require('fs');
 
@@ -56,6 +56,10 @@
                 currField = {};
 
             if(nameRegex !== null && (typeof nameRegex) == 'object' ) regName = nameRegex;
+
+            // Set the PATH and LD_LIBRARY_PATH environment variables.
+            process.env['PATH'] = process.env['PATH'] + ':' + process.env['LAMBDA_TASK_ROOT'] + '/node_modules/pdffiller-aws-lambda/bin';
+            process.env['LD_LIBRARY_PATH'] = process.env['LAMBDA_TASK_ROOT'] + '/node_modules/pdffiller-aws-lambda/bin';
 
             execFile( "pdftk", [sourceFile, "dump_data_fields_utf8"], function (error, stdout, stderr) {
                 if (error) {
@@ -117,6 +121,11 @@
             if (shouldFlatten) {
                 args.push("flatten");
             }
+
+            // Set the PATH and LD_LIBRARY_PATH environment variables.
+            process.env['PATH'] = process.env['PATH'] + ':' + process.env['LAMBDA_TASK_ROOT'] + '/node_modules/pdffiller-aws-lambda/bin';
+            process.env['LD_LIBRARY_PATH'] = process.env['LAMBDA_TASK_ROOT'] + '/node_modules/pdffiller-aws-lambda/bin';
+            
             execFile( "pdftk", args, function (error, stdout, stderr) {
 
                 if ( error ) {
